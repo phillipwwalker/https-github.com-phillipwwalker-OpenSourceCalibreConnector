@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="22G120" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Authors" representedClassName="Authors" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Books" representedClassName="Books" syncable="YES">
+        <attribute name="bookRead" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="calibreId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="comments" optional="YES" attributeType="String"/>
+        <attribute name="format" optional="YES" attributeType="String"/>
+        <attribute name="lastModify" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="library" optional="YES" attributeType="String"/>
+        <attribute name="narrator" optional="YES" attributeType="String"/>
+        <attribute name="pubDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="seriesIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="String"/>
+        <relationship name="cats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categories"/>
+        <relationship name="pub" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Publishers"/>
+        <relationship name="readList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReadingList"/>
+        <relationship name="series" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Serieses"/>
+        <relationship name="writers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Authors"/>
+    </entity>
+    <entity name="Categories" representedClassName="Categories" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="works" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Books"/>
+    </entity>
+    <entity name="LibraryList" representedClassName="LibraryList" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="libraryName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ProgramSettings" representedClassName="ProgramSettings" syncable="YES">
+        <attribute name="calibreServer" optional="YES" attributeType="String"/>
+        <attribute name="collection_lable" optional="YES" attributeType="String"/>
+        <attribute name="curLibrary" optional="YES" attributeType="String"/>
+        <attribute name="defaultLibrary" optional="YES" attributeType="String"/>
+        <attribute name="delay" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ebookType" optional="YES" attributeType="String"/>
+        <attribute name="read_lable" optional="YES" attributeType="String"/>
+        <attribute name="reading_list_label" optional="YES" attributeType="String"/>
+        <attribute name="showThumbnail" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Publishers" representedClassName="Publishers" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="works" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Books"/>
+    </entity>
+    <entity name="ReadingList" representedClassName="ReadingList" syncable="YES">
+        <attribute name="bookTitle" optional="YES" attributeType="String"/>
+        <attribute name="calibreId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Serieses" representedClassName="Serieses" syncable="YES">
+        <attribute name="seriesName" optional="YES" attributeType="String"/>
+        <relationship name="works" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Books"/>
+    </entity>
+</model>
